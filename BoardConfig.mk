@@ -39,7 +39,6 @@ BOARD_KERNEL_NEW_PPPOX  := true
 
 TARGET_KERNEL_CONFIG    := evervolv_mahimahi_defconfig
 
-TARGET_RECOVERY_FSTAB := device/htc/passion/fstab.bravo
 
 # GPS HAL and AMSS version
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mahimahi
