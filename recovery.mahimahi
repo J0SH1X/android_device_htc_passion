@@ -1,0 +1,16 @@
+## Android 6.0 fstab for HTC Passion (cm-14.1 recovery)
+#
+## J0SH1X
+#
+## Last updated: 2017-03-13
+
+# mount point	fstype		device			[device2]
+
+/cache		yaffs2		cache
+/misc		mtd		misc
+/recovery	mtd		recovery
+/sdcard		vfat		/dev/block/mmcblk0p1	/dev/block/mmcblk0
+/sd-ext		yaffs2		userdata
+/boot		yaffs2		boot
+/system		auto		/dev/block/mmcblk0p2
+/data		auto		/dev/block/mmcblk0p3
