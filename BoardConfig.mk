@@ -39,8 +39,6 @@ BOARD_KERNEL_NEW_PPPOX  := true
 
 TARGET_KERNEL_CONFIG    := evervolv_mahimahi_defconfig
 
-TARGET_RECOVERY_FSTAB := device/htc/passion/fstab.bravo
-
 # GPS HAL and AMSS version
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mahimahi
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
@@ -69,20 +67,20 @@ TARGET_CPU_SMP := false
 
 # Boot:     0x00380000 3.5 MB (reduced to 3.0 #3.25)
 # Recovery: 0x00400000 4 MB
-# System:   0x10400000 260 MB
+# System:   0x10400000 1024 MB (ITS MOVED TO SD-EXT)
 # Userdata: 0x0a840000 168.25 MB
 #BOARD_BOOTIMAGE_PARTITION_SIZE := 3145728 #3407872 #3670016
                                      #FIXME had to bump for twrp
 #BOARD_RECOVERYIMAGE_PARTITION_SIZE := 7921664 #ca. 8M
-#BOARD_SYSTEMIMAGE_PARTITION_SIZE := 272629760
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1013972992
+                                     #FIXME 272629760
 #BOARD_USERDATAIMAGE_PARTITION_SIZE := 176422912
 #BOARD_FLASH_BLOCK_SIZE := 131072
 
 BLOCK_BASED_OTA := false
 
-
 # Recovery
-TARGET_RECOVERY_FSTAB   := device/htc/passion/fstab.mahimahi
+TARGET_RECOVERY_FSTAB   := device/htc/passion/recovery.mahimahi
 
 # TWRP Flags
 DEVICE_RESOLUTION := 480x800
@@ -91,7 +89,9 @@ TW_EXCLUDE_SU := true
 TW_EXCLUDE_ENCRYPTED_BACKUPS := true
 TW_NO_SCREEN_BLANK := true
 TW_USE_TOOLBOX := true
-HAVE_SELINUX := true
+HAVE_SELINUX := false
 
 #SElinux
 include device/qcom/sepolicy/sepolicy.mk
+
+TARGET_USERIMAGES_USE_EXT4 := true
