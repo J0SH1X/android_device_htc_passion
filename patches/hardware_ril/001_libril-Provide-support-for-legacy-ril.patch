@@ -1,0 +1,65 @@
+From a49a7f10b2b42eb7b7e838a503ca67a52b0d2d2d Mon Sep 17 00:00:00 2001
+From: Arne Coucheron <arco68@gmail.com>
+Date: Wed, 25 Jul 2012 08:23:05 +0200
+Subject: [PATCH] libril: Provide support for legacy ril
+
+With change Icc620fd191f8542f61bd38e365813753bfedefdf, RIL_VERSION_MIN was
+increased from 2 to 6, but this causes problems for a number of devices
+using ril blobs older than that.
+
+  E/RILC    (  140): RIL_register: version 3 is to old, min version is 6
+
+Consequently causing the ril system unable to connect to the rild socket.
+
+Conflicts:
+	include/telephony/ril.h
+	libril/Android.mk
+
+Change-Id: Iaaa794988c1d404765c734fd5f9a7507ee16da53
+
+Conflicts:
+	libril/Android.mk
+---
+ include/telephony/ril.h | 5 ++++-
+ libril/Android.mk       | 4 ++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/include/telephony/ril.h b/include/telephony/ril.h
+index 2e71367..a8580b3 100644
+--- a/include/telephony/ril.h
++++ b/include/telephony/ril.h
+@@ -31,7 +31,6 @@
+ extern "C" {
+ #endif
+ 
+-
+ #if defined(ANDROID_SIM_COUNT_2)
+ #define SIM_COUNT 2
+ #elif defined(ANDROID_SIM_COUNT_3)
+@@ -47,7 +46,11 @@ extern "C" {
+ #endif
+ 
+ #define RIL_VERSION 11     /* Current version */
++#ifdef LEGACY_RIL
++#define RIL_VERSION_MIN 2 /* Minimum RIL_VERSION supported */
++#else
+ #define RIL_VERSION_MIN 6 /* Minimum RIL_VERSION supported */
++#endif
+ 
+ #define CDMA_ALPHA_INFO_BUFFER_LENGTH 64
+ #define CDMA_NUMBER_INFO_BUFFER_LENGTH 81
+diff --git a/libril/Android.mk b/libril/Android.mk
+index c0b6739..3813867 100644
+--- a/libril/Android.mk
++++ b/libril/Android.mk
+@@ -36,6 +36,10 @@ LOCAL_MODULE:= libril
+ LOCAL_COPY_HEADERS_TO := libril
+ LOCAL_COPY_HEADERS := ril_ex.h
+ 
++ifeq ($(BOARD_USES_LEGACY_RIL),true)
++LOCAL_CFLAGS += -DLEGACY_RIL
++endif
++
+ include $(BUILD_SHARED_LIBRARY)
+ 
+ 
