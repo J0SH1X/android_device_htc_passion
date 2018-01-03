@@ -14,7 +14,7 @@
 
 #
 # This file is the build configuration for a full Android
-# build for bravo hardware. This cleanly combines a set of
+# build for passion hardware. This cleanly combines a set of
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps).
 #
@@ -22,7 +22,9 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+include device/htc/passion/passion.mk
+
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_passion
-PRODUCT_DEVICE := bravo
+PRODUCT_DEVICE := passion
 PRODUCT_MODEL := Full Android on Passion

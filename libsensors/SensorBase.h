@@ -45,9 +45,6 @@ protected:
     int open_device();
     int close_device();
 
-    int write_sys_attribute(
-        char const *path, char const *value, int bytes);
-
 public:
             SensorBase(
                     const char* dev_name,

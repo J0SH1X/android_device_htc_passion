@@ -23,7 +23,6 @@
 #include <sys/select.h>
 
 #include <cutils/log.h>
-#include <cstring>
 
 #include <linux/input.h>
 
@@ -37,9 +36,7 @@ SensorBase::SensorBase(
     : dev_name(dev_name), data_name(data_name),
       dev_fd(-1), data_fd(-1)
 {
-    if (data_name) {
-        data_fd = openInput(data_name);
-    }
+    data_fd = openInput(data_name);
 }
 
 SensorBase::~SensorBase() {
@@ -67,30 +64,7 @@ int SensorBase::close_device() {
     return 0;
 }
 
-int SensorBase::write_sys_attribute(
-    const char *path, const char *value, int bytes)
-{
-    int fd, amt;
-
-    fd = open(path, O_WRONLY);
-    if (fd < 0) {
-        ALOGE("SensorBase::write_attr failed to open %s (%s)",
-            path, strerror(errno));
-        return -1;
-    }
-
-    amt = write(fd, value, bytes);
-    amt = ((amt == -1) ? -errno : 0);
-    ALOGE_IF(amt < 0, "SensorBase::write_attr failed to write %s (%s)",
-        path, strerror(errno));
-    close(fd);
-    return amt;
-}
-
 int SensorBase::getFd() const {
-    if (!data_name) {
-        return dev_fd;
-    }
     return data_fd;
 }
 

@@ -1,4 +1,4 @@
-# Pull all dictionaries (This makes sure it gets called)
+## Pull all dictionaries (This makes sure it gets called)
 TARGET_USE_KEYBOARD := international
 
 # Call this first so apn list is actually copied

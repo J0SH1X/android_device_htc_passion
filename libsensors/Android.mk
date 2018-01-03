@@ -15,7 +15,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),passion)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),mahimahi)
 
 # HAL module implemenation, not prelinked, and stored in
 # hw/<SENSORS_HARDWARE_MODULE_ID>.<ro.product.board>.so
@@ -36,13 +36,10 @@ LOCAL_SRC_FILES := 						\
 				LightSensor.cpp			\
 				ProximitySensor.cpp		\
 				AkmSensor.cpp
-
-LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 				
 LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif # TARGET_DEVICE
+endif # MAHIMAHI

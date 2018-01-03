@@ -14,7 +14,7 @@
 
 LOCAL_PATH:= $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),passion)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),mahimahi)
 
 include $(CLEAR_VARS)
 
@@ -30,4 +30,4 @@ LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif # TARGET_DEVICE
+endif # PASSION
