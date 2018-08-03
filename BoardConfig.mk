@@ -89,7 +89,7 @@ TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB   := device/htc/passion/fstab.passion
+TARGET_RECOVERY_FSTAB   := device/htc/passion/rootdir/fstab.passion
 
 # TWRP Flags
 DEVICE_RESOLUTION := 480x800
