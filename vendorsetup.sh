@@ -2,4 +2,6 @@
   # function: add_lunch_combo generic-eng
   add_lunch_combo cm_passion-userdebug
   add_lunch_combo cm_passion-eng
+  add_lunch_combo lineage_passion-userdebug
+  add_lunch_combo lineage_passion-eng
   
