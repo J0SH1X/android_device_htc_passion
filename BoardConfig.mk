@@ -73,8 +73,8 @@ BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 # ART
 WITH_DEXPREOPT := true
 WITH_DEXPREOPT_BOOT_IMG_ONLY := true
-MALLOC_IMPL := dlmalloc
-TARGET_CPU_SMP := false
+#MALLOC_IMPL := dlmalloc
+#TARGET_CPU_SMP := false
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := false
@@ -90,7 +90,7 @@ TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB   := device/htc/passion/rootdir/fstab.passion
+TARGET_RECOVERY_FSTAB   := device/htc/passion/rootdir/fstab.mahimahi
 
 # TWRP Flags
 DEVICE_RESOLUTION := 480x800
