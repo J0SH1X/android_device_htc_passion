@@ -13,6 +13,9 @@ on fs
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
     mount_all ./fstab.mahimahi
+    
+#Enable Swap
+    swapon /dev/block/mmcblk0p4
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
