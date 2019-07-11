@@ -68,7 +68,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # This is needed for the usb workaround
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=charging
+    persist.sys.usb.config=mass_storage
 
 #
 # Packages required for passion
@@ -107,7 +107,7 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 PRODUCT_COPY_FILES += \
     device/htc/passion/rootdir/init.mahimahi.rc:root/init.mahimahi.rc \
     device/htc/passion/rootdir/init.mahimahi.usb.rc:root/init.mahimahi.usb.rc \
-    device/htc/passion/rootdir/fstab.passion:root/fstab.passion \
+    device/htc/passion/rootdir/fstab.mahimahi:root/fstab.mahimahi \
     device/htc/passion/rootdir/ueventd.mahimahi.rc:root/ueventd.mahimahi.rc
 
 # Prebuilt files/configs
