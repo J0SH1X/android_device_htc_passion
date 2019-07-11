@@ -38,7 +38,7 @@ include device/htc/qsd8k-common/BoardConfigCommon.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := mahimahi
 
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive no_console_suspend=1 wire.search_count=5
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive no_console_suspend=1 wire.search_count=5 androidboot.hardware=mahimahi
 BOARD_KERNEL_BASE := 0x20000000
 BOARD_KERNEL_NEW_PPPOX := true
 
